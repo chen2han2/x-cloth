@@ -1,0 +1,23 @@
+server:
+  port: 9999
+
+spring:
+  datasource:
+    username: root
+    password: password
+    url: jdbc:mysql:///cloth?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+  redis:
+    port: 6379
+    host: localhost
+
+logging:
+  level:
+    com.ch: debug
+
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+  type-aliases-package: com.ch.*.entity
