@@ -1,7 +1,7 @@
 package com.ch.cloth.sys.mapper;
 
-import com.ch.cloth.sys.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ch.cloth.sys.entity.User;
 
 import java.util.List;
 
