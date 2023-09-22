@@ -10,6 +10,6 @@ import java.util.Map;
 public interface IPublishService extends IService<Publish> {
     int insertPublishInfo(Publish publish);
     List<Publish> findAllPublishInfosByAccountId(int accountId);
-    int updateByPublishId(int publishId);
+    int updateByPublishId(Publish publish);
     int deleteByPublishId(int publishId);
 }

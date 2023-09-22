@@ -34,16 +34,18 @@ public class PublishImpl extends ServiceImpl<PublishMapper, Publish> implements 
 
     @Override
     public List<Publish> findAllPublishInfosByAccountId(int accountId) {
-        return null;
+        return publishMapper.findAllPublishInfosByAccountId(accountId);
     }
 
     @Override
-    public int updateByPublishId(int publishId) {
-        return 0;
+    public int updateByPublishId(Publish publish) {
+        publishMapper.updateByPublishId(publish);
+        return 1;
     }
 
     @Override
     public int deleteByPublishId(int publishId) {
+        publishMapper.deleteByPublishId(publishId);
         return 0;
     }
 }
