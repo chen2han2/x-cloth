@@ -1,6 +1,18 @@
 package com.ch.cloth.sys.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@TableName("account_inf")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Account {
+    @TableId(value = "account_id")
     private int accountId;
     private String account;
     private String password;

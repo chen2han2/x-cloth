@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.cloth.sys.mapper.AccountMapper">
+    <resultMap type="com.ch.cloth.sys.entity.Account" id="AccountInfo">
+        <result column="account_id" property="accountId"/>
+        <result column="account" property="account"/>
+        <result column="password" property="password"/>
+        <result column="logo_path" property="logoPath"/>
+        <result column="person_type" property="personType"/>
+        <result column="remain_publish_times" property="remainPublishTimes"/>
+        <result column="last_publish_time" property="lastPublishTime"/>
+        <result column="is_vip" property="isVip"/>
+        <result column="vip_time" property="vipTime"/>
+        <result column="vip_type" property="vipType"/>
+    </resultMap>
+
+    <update id="updateAccount" parameterType="Account" >
+        update account_inf
+        <set>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="logoPath != null">
+                logo_path = #{logoPath},
+            </if>
+            <if test="personType != 0">
+                person_type = #{personType},
+            </if>
+
+        </set>
+        where account_id = #{accountId}
+    </update>
+
+    <update id="updateAccountByAccountId"  >
+        update account_inf
+        set account = #{account}
+        where account_id = #{accountId}
+    </update>
+
+    <select id="findAccountByAccount" parameterType="String" resultType="int" >
+        select count(account) from account_inf where account = #{account}
+    </select>
+
+    <update id="updateVipByAccountId"  >
+        update account_inf
+        set is_vip = #{isVip},vip_time = #{vipTime},vip_type = #{vipType}
+        where account_id = #{accountId}
+    </update>
+
+    <update id="updatePublishByAccountId"  >
+        update account_inf
+        set remain_publish_times = #{remainPublishTimes},last_publish_time = #{lastPublishTime}
+        where account_id = #{accountId}
+    </update>
+
+    <select id="findAccountByNamePassword"  resultType="Account" >
+        select * from account_inf where account = #{account} and password = #{password}
+    </select>
+
+    <select id="findAccountByName"  resultType="Account" >
+        select * from account_inf where account = #{account}
+    </select>
+</mapper>

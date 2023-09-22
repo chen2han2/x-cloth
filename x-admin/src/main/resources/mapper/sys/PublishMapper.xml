@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.cloth.sys.mapper.PublishMapper">
+
+    <resultMap type="com.ch.cloth.sys.entity.Publish" id="PublishInfo">
+        <result column="publish_id" property="publishId"/>
+        <result column="account_id" property="accountId"/>
+        <result column="publish_time" property="publishTime"/>
+        <result column="work_type" property="workType"/>
+        <result column="work_info" property="workInfo"/>
+        <result column="small_cloth_type" property="smallClothType"/>
+        <result column="salary_type" property="salaryType"/>
+        <result column="salary" property="salary"/>
+        <result column="cloth_pic_path" property="clothPicPath"/>
+        <result column="cloth_description" property="clothDescription"/>
+        <result column="cloth_technology" property="clothTechnology"/>
+        <result column="recruit_num" property="recruitNum"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="area" property="area"/>
+        <result column="detail_address" property="detailAddress"/>
+        <result column="urgent_recruit" property="urgentRecruit"/>
+        <result column="phone_num" property="phoneNum"/>
+        <result column="factory_name" property="factoryName"/>
+    </resultMap>
+
+    <select id="findAllPublishInfosByAccountId" parameterType="int" resultMap="PublishInfo">
+        select * from publish_inf where account_id = #{accountId}
+    </select>
+
+    <update id="updateByPublishId" parameterType="Publish">
+        update publish_inf
+        <set>
+            <if test="publishTime != null">
+                publish_time = #{publishTime},
+            </if>
+            <if test="workType != null">
+                work_type = #{workType},
+            </if>
+            <if test="workInfo != null">
+                work_info = #{workInfo},
+            </if>
+            <if test="smallClothType != null">
+                small_cloth_type = #{smallClothType},
+            </if>
+            <if test="salaryType != null">
+                salary_type = #{salaryType},
+            </if>
+            <if test="salary != null">
+                salary = #{salary},
+            </if>
+            <if test="clothPicPath != null">
+                cloth_pic_path = #{clothPicPath},
+            </if>
+            <if test="clothDescription != null">
+                cloth_description = #{clothDescription},
+            </if>
+            <if test="clothTechnology != null">
+                cloth_Technology = #{clothTechnology},
+            </if>
+            <if test="recruitNum != null">
+                recruit_num = #{recruitNum},
+            </if>
+            <if test="province != null">
+                province = #{province},
+            </if>
+            <if test="city != null">
+                city = #{city},
+            </if>
+            <if test="area != null">
+                area = #{area},
+            </if>
+            <if test="detailAddress != null">
+                detail_address = #{detailAddress},
+            </if>
+            <if test="urgentRecruit != null">
+                urgent_recruit = #{urgentRecruit},
+            </if>
+            <if test="phoneNum != null">
+                phone_num = #{phoneNum},
+            </if>
+            <if test="factoryName != null">
+                factoryName = #{factoryName},
+            </if>
+        </set>
+        where publish_id = #{publishId}
+    </update>
+
+    <delete id="deleteByPublishId" parameterType="int">
+        delete from publish_inf where publish_id = #{publishId}
+    </delete>
+
+</mapper>
