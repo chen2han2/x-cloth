@@ -17,6 +17,7 @@ class XAdminApplicationTests {
     @Test
     void testMapper() {
         List<User> users = userMapper.selectList(null);
+        System.out.println("++++++users:" + users.size());
         users.forEach(System.out::println);
     }
 

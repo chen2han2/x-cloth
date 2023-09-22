@@ -1,8 +1,23 @@
 package com.ch.cloth.sys.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@TableName("feed_information")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Feed {
+    @TableId(value = "feed_id", type = IdType.AUTO)
     private int feedId;
+    @TableField(value = "feed_type")
     private int feedType;
+    @TableField(value = "feed_description")
     private String feedDescription;
     public int getFeedId() {
         return feedId;

@@ -12,7 +12,7 @@ public class CodeGenerator {
     public static void main(String[] args) {
         String url = "jdbc:mysql:///cloth_sql";
         String username = "root";
-        String password = "passord";
+        String password = "123456";
         String moduleName = "sys";
         String mapperLocation = "D:\\x-cloth\\x-admin\\src\\main\\resources\\mapper\\" + moduleName;
         String tables = "account_inf,cloth_type,feed_information,publish_inf";

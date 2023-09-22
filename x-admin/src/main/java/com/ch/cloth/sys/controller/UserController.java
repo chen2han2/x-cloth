@@ -23,6 +23,8 @@ public class UserController {
     @GetMapping("/all")
     public Result<List<User>> getAllUser(){
         List<User> list = userService.list();
+        userService.getUserById(1);
+        //System.out.println("++++++users:" + user.size());
         return Result.success(list,"查询成功");
     }
 

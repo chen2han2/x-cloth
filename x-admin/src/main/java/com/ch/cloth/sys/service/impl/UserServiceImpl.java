@@ -6,6 +6,8 @@ import com.ch.cloth.sys.mapper.UserMapper;
 import com.ch.cloth.sys.service.IUserService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,6 +20,8 @@ import java.util.Map;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
+    @Resource
+    private UserMapper userMapper;
 
     @Override
     public Map<String, Object> login(User user) {
@@ -41,6 +45,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     public User getUserById(Integer id) {
+        int nums = userMapper.getRoleNameByUserId();
+        System.out.println("++++++users:" + nums);
         return null;
     }
 

@@ -22,50 +22,50 @@ USE `cloth_sql`;
 DROP TABLE IF EXISTS `account_inf`;
 
 CREATE TABLE account_inf (
-                             accountId INT PRIMARY KEY,
+                             account_id INT PRIMARY KEY,
                              account VARCHAR(255),
                              password VARCHAR(255),
-                             logoPath VARCHAR(255),
-                             personType INT,
-                             remainPublishTimes INT,
-                             lastPublishTime VARCHAR(255),
-                             isVip INT,
-                             vipTime VARCHAR(255),
-                             vipType INT
+                             logo_path VARCHAR(255),
+                             person_type INT,
+                             remain_publish_times INT,
+                             last_publish_time VARCHAR(255),
+                             is_vip INT,
+                             vip_time VARCHAR(255),
+                             vip_type INT
 );
 
 CREATE TABLE publish_inf (
-                             publishId INT PRIMARY KEY AUTO_INCREMENT,
-                             accountId INT,
-                             publishTime VARCHAR(255),
-                             workType INT,
-                             workInfo VARCHAR(255),
-                             smallClothType VARCHAR(255),
-                             salaryType INT,
+                             publish_id INT PRIMARY KEY AUTO_INCREMENT,
+                             account_id INT,
+                             publish_time VARCHAR(255),
+                             work_type INT,
+                             work_info VARCHAR(255),
+                             small_cloth_type VARCHAR(255),
+                             salary_type INT,
                              salary INT,
-                             clothPicPath VARCHAR(255),
-                             clothDescription VARCHAR(255),
-                             clothTechnology VARCHAR(255),
-                             recruitNum INT,
+                             cloth_pic_path VARCHAR(255),
+                             cloth_description VARCHAR(255),
+                             cloth_technology VARCHAR(255),
+                             recruit_num INT,
                              province VARCHAR(255),
                              city VARCHAR(255),
                              area VARCHAR(255),
-                             detailAddress VARCHAR(255),
-                             urgentRecruit INT,
-                             phoneNum VARCHAR(255),
-                             factoryName VARCHAR(255),
-                             FOREIGN KEY (accountId) REFERENCES account_inf(accountId)
+                             detail_address VARCHAR(255),
+                             urgent_recruit INT,
+                             phone_num VARCHAR(255),
+                             factory_ame VARCHAR(255),
+                             FOREIGN KEY (account_id) REFERENCES account_inf(account_id)
 );
 
 
 CREATE TABLE cloth_type (
-                            clothTypeId INT PRIMARY KEY AUTO_INCREMENT,
-                            smallClothType VARCHAR(255),
-                            largeClothType VARCHAR(255)
+                            cloth_type_id INT PRIMARY KEY AUTO_INCREMENT,
+                            small_cloth_type VARCHAR(255),
+                            large_cloth_type VARCHAR(255)
 );
 
 CREATE TABLE feed_information (
-                                  feedId INT PRIMARY KEY AUTO_INCREMENT,
-                                  feedType INT,
-                                  feedDescription VARCHAR(255)
+                                  feed_id INT PRIMARY KEY AUTO_INCREMENT,
+                                  feed_type INT,
+                                  feed_description VARCHAR(255)
 );

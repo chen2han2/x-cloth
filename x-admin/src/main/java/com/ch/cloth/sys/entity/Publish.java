@@ -1,6 +1,15 @@
 package com.ch.cloth.sys.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+
+@TableName("publish_inf")
+@Data
 public class Publish {
+
+    @TableId(value = "publish_id", type = IdType.AUTO)
     private int publishId;
     private int accountId;
     private String publishTime;
